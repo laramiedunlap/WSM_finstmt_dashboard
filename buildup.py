@@ -46,7 +46,7 @@ def get_corpus_dates(corpus:dict)-> dict:
     return corpus_with_dates
 
 
-def get_options(corpus:dict)-> tuple(list, dict):
+def get_options(corpus:dict)-> tuple[list, dict]:
     """retrieve a list of upper level categories and a dictionary with options beneath each categories"""
     categories = []
 
@@ -61,6 +61,8 @@ def get_options(corpus:dict)-> tuple(list, dict):
         for date in corpus.keys():
             items = list(corpus[date][cat].keys())
             cat_options[cat] += [x for x in items if x not in cat_options[cat]]
+
+    return categories, cat_options
 
 def main():
     """Get the main corpus with datetime keys"""
